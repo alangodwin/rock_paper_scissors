@@ -3,6 +3,7 @@ function computerPlayer () {
     return action[Math.floor(Math.random()*action.length)]
 }
 function playRound (computerSelection, playerSelection) {
+    playerSelection = playerSelection.toLowerCase()
     if (computerSelection === playerSelection) {
         return `You both draw you cant beat ${computerSelection} with ${playerSelection}!`;
     } else if (computerSelection === 'rock' && playerSelection === 'paper') {
