@@ -5,7 +5,7 @@ function computerPlayer () {
 function playRound (computerSelection, playerSelection) {
     playerSelection = playerSelection.toLowerCase()
     if (computerSelection === playerSelection) {
-        return `You both draw you cant beat ${computerSelection} with ${playerSelection}!`;
+        return `You both draw, you can't beat ${computerSelection} with ${playerSelection}!`;
     } else if (computerSelection === 'rock' && playerSelection === 'paper') {
         return 'You win! Paper beats rock!';
     } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
