@@ -37,3 +37,5 @@ function game() {
         return alert('You lost sorry');
         }
 }
+
+btn.addEventListener('click', game);
