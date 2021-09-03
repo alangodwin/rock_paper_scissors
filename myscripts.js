@@ -22,18 +22,18 @@ function game() {
     let playerCount = 0
     let computerCount = 0
     for (let i = 0; i < 5; i++) { //For loop which loops through 5 times
-    playerSelection = prompt('Select your weapon: Rock, paper or scissors?')
-    let result = playRound(computerPlayer(), playerSelection)
-    if (result.search('win')>0){
-        playerCount++
-    } else {
-        computerCount++
-    }
-    alert(result + " " + playerCount + '/5')
-    }
-    if (playerCount>computerCount) {
-    return alert('You win')
-    } else {
+        playerSelection = prompt('Select your weapon: Rock, paper or scissors?')
+        let result = playRound(computerPlayer(), playerSelection)
+        if (result.search('win')>0){
+            playerCount++
+        } else {
+            computerCount++
+        }
+        alert(result + " " + playerCount + '/5')
+        }
+        if (playerCount>computerCount) {
+        return alert('You win')
+        } else {
         return alert('You lost sorry')
-    }
+        }
 }
