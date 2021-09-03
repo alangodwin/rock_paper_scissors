@@ -1,6 +1,6 @@
 function computerPlayer () {
-    let action = ['rock', 'paper', 'scissors']
-    return action[Math.floor(Math.random()*action.length)]
+    let action = ['rock', 'paper', 'scissors'];
+    return action[Math.floor(Math.random()*action.length)];
 }
 function playRound (computerSelection, playerSelection) {
     playerSelection = playerSelection.toLowerCase()
@@ -17,23 +17,23 @@ function playRound (computerSelection, playerSelection) {
     }
 }
 function game() {
-    let playerSelection = ""
-    let result = ""
-    let playerCount = 0
-    let computerCount = 0
+    let playerSelection = "";
+    let result = "";
+    let playerCount = 0;
+    let computerCount = 0;
     for (let i = 0; i < 5; i++) { //For loop which loops through 5 times
-        playerSelection = prompt('Select your weapon: Rock, paper or scissors?')
-        let result = playRound(computerPlayer(), playerSelection)
+        playerSelection = prompt('Select your weapon: Rock, paper or scissors?');
+        let result = playRound(computerPlayer(), playerSelection);
         if (result.search('win')>0){
-            playerCount++
+            playerCount++;
         } else {
-            computerCount++
+            computerCount++;
         }
-        alert(result + " " + playerCount + '/5')
+        alert(result + " " + playerCount + '/5');
         }
         if (playerCount>computerCount) {
-        return alert('You win')
+        return alert('You win');
         } else {
-        return alert('You lost sorry')
+        return alert('You lost sorry');
         }
 }
