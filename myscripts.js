@@ -22,12 +22,18 @@ const score = document.createElement('p');
 score.classList.add('score');
 scoreboard.appendChild(score);
 
+const endResult = document.createElement('p');
+endResult.classList.add('endResult');
+scoreboard.appendChild(endResult);
+
 function game() {
     let playerSelection = "";
     let result = "";
     let playerCount = 0;
     let computerCount = 0;
-    while (playerCount < 5 && computerCount < 5 ) { //while loop which loops till player reaches 5points
+    score.textContent = "player:" + playerCount + "/computer:" + computerCount;
+    while (playerCount < 2 && computerCount < 2 ) { //while loop which loops till player reaches 5points
+        endResult.textContent = " "
         playerSelection = prompt('Select your weapon: Rock, paper or scissors?');
         let result = playRound(computerPlayer(), playerSelection);
         if (result.search('win')>0){
@@ -38,9 +44,9 @@ function game() {
         score.textContent = "player:" + playerCount + "/computer:" + computerCount;
         }
         if (playerCount>computerCount) {
-        return alert('You win');
+        endResult.textContent = "You win";
         } else {
-        return alert('You lost sorry');
+        endResult.textContent = 'You lost sorry'
         }
 }
 
