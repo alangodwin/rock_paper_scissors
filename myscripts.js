@@ -16,12 +16,18 @@ function playRound (computerSelection, playerSelection) {
         return `You lose! ${computerSelection} beats ${playerSelection}!`;
     }
 }
+
+const scoreboard = document.querySelector('#scoreboard');
+const score = document.createElement('p');
+score.classList.add('score');
+scoreboard.appendChild(score);
+
 function game() {
     let playerSelection = "";
     let result = "";
     let playerCount = 0;
     let computerCount = 0;
-    for (let i = 0; i < 5; i++) { //For loop which loops through 5 times
+    while (playerCount < 5 && computerCount < 5 ) { //while loop which loops till player reaches 5points
         playerSelection = prompt('Select your weapon: Rock, paper or scissors?');
         let result = playRound(computerPlayer(), playerSelection);
         if (result.search('win')>0){
@@ -29,7 +35,7 @@ function game() {
         } else {
             computerCount++;
         }
-        alert(result + " " + playerCount + '/5');
+        score.textContent = "player:" + playerCount + "/computer:" + computerCount;
         }
         if (playerCount>computerCount) {
         return alert('You win');
