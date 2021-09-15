@@ -22,10 +22,23 @@ const score = document.createElement('p');
 score.classList.add('score');
 scoreboard.appendChild(score);
 
-const endResult = document.createElement('p');
-endResult.classList.add('endResult');
-scoreboard.appendChild(endResult);
+const roundResult = document.createElement('p');
+roundResult.classList.add('roundResult');
+scoreboard.appendChild(roundResult);
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => { //adds click even listener to each button and returns id
+    button.addEventListener('click', () => {
+      playerSelection = (button.id);
+      console.log(playerSelection)
+      let gameResult = playRound(computerPlayer(), playerSelection);
+      console.log(gameResult)
+      roundResult.textContent = gameResult
+    });
+});
+
+
+/*
 function game() {
     let playerSelection = "";
     let result = "";
@@ -34,7 +47,11 @@ function game() {
     score.textContent = "player:" + playerCount + "/computer:" + computerCount;
     while (playerCount < 2 && computerCount < 2 ) { //while loop which loops till player reaches 5points
         endResult.textContent = " "
-        playerSelection = prompt('Select your weapon: Rock, paper or scissors?');
+        buttons.forEach((button) => { //adds click even listener to each button and returns id
+            button.addEventListener('click', () => {
+              playerSelection = (button.id);
+            });
+          });
         let result = playRound(computerPlayer(), playerSelection);
         if (result.search('win')>0){
             playerCount++;
@@ -49,5 +66,7 @@ function game() {
         endResult.textContent = 'You lost sorry'
         }
 }
+*/
 
-btn.addEventListener('click', game);
+//btn.addEventListener('click', game);
+//play.addEventListener('click', game)
