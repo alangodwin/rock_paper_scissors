@@ -26,14 +26,43 @@ const roundResult = document.createElement('p');
 roundResult.classList.add('roundResult');
 scoreboard.appendChild(roundResult);
 
+var computerScore = 0
+var playerScore = 0
+const computerScoreBoard = document.querySelector('#computerScoreBoard');
+computerScoreBoard.classList.add('computerScoreBoard');
+
+const playerScoreBoard = document.querySelector('#playerScoreBoard');
+playerScoreBoard.classList.add('playerScoreBoard');
+
 const buttons = document.querySelectorAll('button');
+
 buttons.forEach((button) => { //adds click even listener to each button and returns id
     button.addEventListener('click', () => {
       playerSelection = (button.id);
       console.log(playerSelection)
       let gameResult = playRound(computerPlayer(), playerSelection);
       console.log(gameResult)
-      roundResult.textContent = gameResult
+      if (typeof computerScore != "number"){
+        computerScore = 0;
+        playerScore = 0;
+      }
+      if (gameResult.search('win')>0){
+        playerScore++;
+      } 
+      if (gameResult.search('lose')>0) {
+        computerScore++;
+      }
+      if (computerScore == 5) {
+          computerScore ="you win!"
+          playerScore = "you lose!"
+      } 
+      if (playerScore == 5) 
+      { computerScore ="you lose!"
+      playerScore = "you win!"
+      }
+      computerScoreBoard.textContent =  "computer score:" + computerScore
+      playerScoreBoard.textContent = "player score:" + playerScore
+      roundResult.textContent =  gameResult
     });
 });
 
