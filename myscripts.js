@@ -11,7 +11,7 @@ function playRound (computerSelection, playerSelection) {
     } else if (computerSelection === 'paper' && playerSelection === 'scissors') {
         return 'You win! Scissors beats paper!';
     } else if (computerSelection === 'scissors' && playerSelection === 'rock') {
-        return 'You win! Rock beats Scissors';
+        return 'You win! Rock beats scissors!';
     } else {
         return `You lose! ${computerSelection} beats ${playerSelection}!`;
     }
@@ -36,7 +36,7 @@ playerScoreBoard.classList.add('playerScoreBoard');
 
 const buttons = document.querySelectorAll('button');
 
-buttons.forEach((button) => { //adds click even listener to each button and returns id
+buttons.forEach((button) => { //adds click event listener to each button and returns id
     button.addEventListener('click', () => {
       playerSelection = (button.id);
       console.log(playerSelection)
@@ -53,49 +53,16 @@ buttons.forEach((button) => { //adds click even listener to each button and retu
         computerScore++;
       }
       if (computerScore == 5) {
-          computerScore ="you win!"
-          playerScore = "you lose!"
+          computerScore ="You win!"
+          playerScore = "You lose!"
       } 
       if (playerScore == 5) 
-      { computerScore ="you lose!"
-      playerScore = "you win!"
+      { computerScore ="You lose!"
+      playerScore = "You win!"
       }
-      computerScoreBoard.textContent =  "computer score:" + computerScore
-      playerScoreBoard.textContent = "player score:" + playerScore
+      computerScoreBoard.textContent =  "Computer score:" + computerScore
+      playerScoreBoard.textContent = "Player score:" + playerScore
       roundResult.textContent =  gameResult
     });
 });
 
-
-/*
-function game() {
-    let playerSelection = "";
-    let result = "";
-    let playerCount = 0;
-    let computerCount = 0;
-    score.textContent = "player:" + playerCount + "/computer:" + computerCount;
-    while (playerCount < 2 && computerCount < 2 ) { //while loop which loops till player reaches 5points
-        endResult.textContent = " "
-        buttons.forEach((button) => { //adds click even listener to each button and returns id
-            button.addEventListener('click', () => {
-              playerSelection = (button.id);
-            });
-          });
-        let result = playRound(computerPlayer(), playerSelection);
-        if (result.search('win')>0){
-            playerCount++;
-        } else {
-            computerCount++;
-        }
-        score.textContent = "player:" + playerCount + "/computer:" + computerCount;
-        }
-        if (playerCount>computerCount) {
-        endResult.textContent = "You win";
-        } else {
-        endResult.textContent = 'You lost sorry'
-        }
-}
-*/
-
-//btn.addEventListener('click', game);
-//play.addEventListener('click', game)
